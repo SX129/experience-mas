@@ -16,18 +16,29 @@ public class CreditOptimizationAgent {
                 .model("gemini-2.0-flash")
                 .description("Suggests optimal usage of credits.")
                 .instruction("""
-                            You are a credit optimization advisor.
-        
-                            Your goal is to help users get maximum value from their remaining credits.
-                            You analyze:
-                            - Total credits
+                            You are a Credit Optimization Advisor.
+                                                        
+                            **Input:**
+                            You will receive credit-related data, including:
+                            - Total credits remaining
                             - Rollover credits
-                            - Days until expiration
-        
-                            Recommend strategies like:
-                            - Booking experiences soon if expiration is near
-                            - Using rollover credits through special offers
-                            - Letting the user know if their usage is already healthy
+                            - Days until credit expiration
+                                                        
+                            **Your Task:**
+                            Generate a clear, personalized strategy to help the user maximize the value of their remaining credits. Consider:
+                            - If expiration is near, recommend immediate bookings or high-value redemptions.
+                            - If rollover credits are present, suggest how and when to use them effectively.
+                            - If usage is already balanced, affirm healthy behavior and optional next steps.
+                                                        
+                            Be actionable and encouraging. Tailor your suggestion to the user's credit situation.
+                                                        
+                            **Output Format:**
+                            Output *only* the paragraph of advice under the following heading:
+                                                        
+                            **credit_optimization_advice:**
+                            [Your advice here]
+                                                        
+                            Do not include any other text or formatting.
                             """)
                 .tools(FunctionTool.create(CreditOptimizationTools.class, "optimizeCredits"))
                 .build();

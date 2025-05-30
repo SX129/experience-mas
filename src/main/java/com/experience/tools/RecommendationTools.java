@@ -12,6 +12,7 @@ public class RecommendationTools {
             @Schema(description = "Whether the user tends to cancel frequently") boolean oftenCancels,
             @Schema(description = "Optional weather forecast (e.g., sunny, rainy, cold)") @Nullable String weather) {
         List<String> recommendations = new ArrayList<>();
+        System.out.println("[DEBUG] RecommendationTools.recommendExperiences() called");
 
         if (urgency.equalsIgnoreCase("high")) {
             recommendations.add("Try a last-minute booking in your category to avoid credit expiration.");

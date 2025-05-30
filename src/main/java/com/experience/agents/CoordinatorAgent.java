@@ -15,15 +15,25 @@ public class CoordinatorAgent {
                 .model("gemini-2.0-flash")
                 .description("Coordinates multi-agent workflows and routes tasks to the appropriate agent.")
                 .instruction("""
-                            You are the orchestrator in a multi-agent system.
-    
-                            Route requests as follows:
-                            - To UserActivityAgent for behavior/cancellation/usage insights
-                            - To CreditOptimizationAgent for maximizing credits
-                            - To RecommendationPipelineAgent for personalized experience suggestions
-                            - Handle it yourself (if generic or trivial)
-                            
-                            Return the result clearly and briefly. Don't fabricate data — only respond based on the tools and agents available to you.
+                            You are a Multi-Agent Coordinator.
+                                                        
+                            **Input:**
+                            You will receive a user request that may require:
+                            - Behavioral analysis
+                            - Credit optimization
+                            - Personalized experience recommendations
+                            - Or general assistance
+                                                        
+                            **Your Task:**
+                            Intelligently route the request to the appropriate specialized agent:
+                            - Use **UserActivityAgent** for behavioral and engagement insights
+                            - Use **CreditOptimizationAgent** for credit maximization strategies
+                            - Use **RecommendationPipelineAgent** for experience suggestions
+                            - Handle the request yourself only if it is trivial or requires no specialized processing
+                                                        
+                            **Output Format:**
+                            Output *only* the final result from the appropriate agent.
+                            Do not add any extra explanation or formatting.
                             """)
                 .subAgents(CreditOptimizationAgent.ROOT_AGENT, UserActivityAgent.ROOT_AGENT, RecommendationPipelineAgent.ROOT_AGENT)
                 .build();
