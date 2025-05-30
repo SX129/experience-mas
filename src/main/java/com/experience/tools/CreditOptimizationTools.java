@@ -4,7 +4,7 @@ import com.google.adk.tools.Annotations.Schema;
 import java.util.Map;
 
 public class CreditOptimizationTools {
-    public static Map<String, String> optimizeCredits(
+    public static Map<String, Object> optimizeCredits(
             @Schema(description = "User ID") String userId,
             @Schema(description = "Total credits available") int totalCredits,
             @Schema(description = "Rollover credits") int rolloverCredits,

@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 import java.util.*;
 
 public class RecommendationTools {
-    public static List<String> recommendExperiences(
+    public static Map<String, Object> recommendExperiences(
             @Schema(description = "User's preferred category (e.g., fitness, art, social)") String category,
             @Schema(description = "Urgency level: 'low', 'moderate', or 'high' based on credit expiration") String urgency,
             @Schema(description = "Whether the user tends to cancel frequently") boolean oftenCancels,
@@ -33,6 +33,6 @@ public class RecommendationTools {
             recommendations.add("Pick flexible bookings with free cancellation.");
         }
 
-        return recommendations;
+        return Map.of("recommendations", recommendations);
     }
 }

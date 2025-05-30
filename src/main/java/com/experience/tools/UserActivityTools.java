@@ -4,17 +4,22 @@ import java.util.Map;
 import com.google.adk.tools.Annotations.Schema;
 
 public class UserActivityTools {
-    public static Map<String, String> analyzeUserActivity(
+    public static Map<String, Object> analyzeUserActivity(
             @Schema(description = "The unique user ID") String userId,
             @Schema(description = "How many credits the user used last month") int creditsUsed,
             @Schema(description = "Number of activities the user booked") int activitiesBooked,
             @Schema(description = "Whether they often cancel") boolean oftenCancels) {
+
+        String result;
+
         if (creditsUsed < 3 && !oftenCancels) {
-            return Map.of("insight", "User is underutilizing subscription. Recommend nudging them with a new class.");
+            result = "User is underutilizing subscription. Recommend nudging them with a new class.";
         } else if (oftenCancels) {
-            return Map.of("insight", "User often cancels classes. Consider surveying for feedback.");
+            result = "User often cancels classes. Consider surveying for feedback.";
         } else {
-            return Map.of("insight", "User is actively using the platform. Recommend similar experiences.");
+            result = "User is actively using the platform. Recommend similar experiences.";
         }
+
+        return Map.of("user_activity_insight", result);
     }
 }
