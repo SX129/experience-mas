@@ -1,6 +1,6 @@
 package com.experience;
 
-import com.experience.agents.UserActivityAgent;
+import com.experience.agents.CoordinatorAgent;
 import com.google.adk.events.Event;
 import com.google.adk.runner.InMemoryRunner;
 import com.google.adk.sessions.Session;
@@ -12,12 +12,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception{
-        InMemoryRunner runner = new InMemoryRunner(UserActivityAgent.ROOT_AGENT);
+        InMemoryRunner runner = new InMemoryRunner(CoordinatorAgent.ROOT_AGENT);
 
         Session session =
                 runner
                         .sessionService()
-                        .createSession(UserActivityAgent.NAME, UserActivityAgent.USER_ID)
+                        .createSession(CoordinatorAgent.NAME, CoordinatorAgent.USER_ID)
                         .blockingGet();
 
         try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
@@ -30,7 +30,7 @@ public class Main {
                 }
 
                 Content message = Content.fromParts(Part.fromText(userInput));
-                Flowable<Event> events = runner.runAsync(UserActivityAgent.USER_ID, session.id(), message);
+                Flowable<Event> events = runner.runAsync(CoordinatorAgent.USER_ID, session.id(), message);
 
                 System.out.print("\nAgent: ");
                 events.blockingForEach(event -> System.out.println(event.stringifyContent()));
