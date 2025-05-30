@@ -11,14 +11,13 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         InMemoryRunner runner = new InMemoryRunner(CoordinatorAgent.ROOT_AGENT);
 
-        Session session =
-                runner
-                        .sessionService()
-                        .createSession(CoordinatorAgent.NAME, CoordinatorAgent.USER_ID)
-                        .blockingGet();
+        Session session = runner
+                .sessionService()
+                .createSession(CoordinatorAgent.NAME, CoordinatorAgent.USER_ID)
+                .blockingGet();
 
         try (Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8)) {
             while (true) {

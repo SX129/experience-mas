@@ -13,5 +13,4 @@ public class UserActivity {
         this.oftenCancels = oftenCancels;
     }
 
-
 }

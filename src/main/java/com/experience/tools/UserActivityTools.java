@@ -8,8 +8,7 @@ public class UserActivityTools {
             @Schema(description = "The unique user ID") String userId,
             @Schema(description = "How many credits the user used last month") int creditsUsed,
             @Schema(description = "Number of activities the user booked") int activitiesBooked,
-            @Schema(description = "Whether they often cancel") boolean oftenCancels
-    ) {
+            @Schema(description = "Whether they often cancel") boolean oftenCancels) {
         if (creditsUsed < 3 && !oftenCancels) {
             return Map.of("insight", "User is underutilizing subscription. Recommend nudging them with a new class.");
         } else if (oftenCancels) {

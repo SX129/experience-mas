@@ -9,25 +9,23 @@ public class CoordinatorAgent {
 
     public static BaseAgent ROOT_AGENT = initAgent();
 
-    public static BaseAgent initAgent(){
+    private static BaseAgent initAgent() {
         return LlmAgent.builder()
-            .name(NAME)
-            .model("gemini-2.0-flash")
-            .description("Coordinates multi-agent workflows and routes tasks to the appropriate agent.")
-            .instruction("""
-                You are the orchestrator in a multi-agent system.
-                
-                You must understand the user request and decide whether to:
-                - Route to the User Activity Agent
-                - Route to the Credit Optimization Agent
-                - Handle it yourself (if generic or trivial)
-                
-                If a request is about behavior, usage, cancellations, or patterns, delegate to the UserActivityAgent.
-                If a request is about maximizing credits, credit status, or savings, delegate to the CreditOptimizationAgent.
-                
-                Return the result clearly and briefly. Don't fabricate data — only respond based on the tools and agents available to you.
-                """)
-            .subAgents(CreditOptimizationAgent.initAgent(), UserActivityAgent.initAgent())
-            .build();
+                .name(NAME)
+                .model("gemini-2.0-flash")
+                .description("Coordinates multi-agent workflows and routes tasks to the appropriate agent.")
+                .instruction("""
+                            You are the orchestrator in a multi-agent system.
+    
+                            Route requests as follows:
+                            - To UserActivityAgent for behavior/cancellation/usage insights
+                            - To CreditOptimizationAgent for maximizing credits
+                            - To RecommendationPipelineAgent for personalized experience suggestions
+                            - Handle it yourself (if generic or trivial)
+                            
+                            Return the result clearly and briefly. Don't fabricate data — only respond based on the tools and agents available to you.
+                            """)
+                .subAgents(CreditOptimizationAgent.ROOT_AGENT, UserActivityAgent.ROOT_AGENT, RecommendationPipelineAgent.ROOT_AGENT)
+                .build();
     }
 }
