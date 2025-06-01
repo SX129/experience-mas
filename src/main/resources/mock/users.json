@@ -1,0 +1,38 @@
+[
+  {
+    "userId": "123",
+    "name": "Alice Johnson",
+    "location": "Dallas",
+    "account": {
+      "creditsAvailable": 100,
+      "lastCreditExpirationDays": 5
+    },
+    "activity": {
+      "bookingsLastMonth": 4,
+      "cancellationsLastMonth": 0,
+      "preferredCategories": ["fitness", "wellness"]
+    },
+    "historicalPatterns": {
+      "bookingFrequencyPerWeek": 1,
+      "cancellationRate": 0.0
+    }
+  },
+  {
+    "userId": "456",
+    "name": "Bob Smith",
+    "location": "New York",
+    "account": {
+      "creditsAvailable": 30,
+      "lastCreditExpirationDays": 15
+    },
+    "activity": {
+      "bookingsLastMonth": 0,
+      "cancellationsLastMonth": 0,
+      "preferredCategories": ["creativity"]
+    },
+    "historicalPatterns": {
+      "bookingFrequencyPerWeek": 0,
+      "cancellationRate": 0.0
+    }
+  }
+]
