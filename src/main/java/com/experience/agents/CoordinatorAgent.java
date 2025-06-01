@@ -1,6 +1,5 @@
 package com.experience.agents;
 
-import com.experience.tools.UserActivityTools;
 import com.experience.tools.user.UserMockDataTool;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;

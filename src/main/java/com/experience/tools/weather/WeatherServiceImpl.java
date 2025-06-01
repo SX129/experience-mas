@@ -1,6 +1,7 @@
 package com.experience.tools.weather;
 
-import org.springframework.beans.factory.annotation.Value;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -33,7 +34,8 @@ public class WeatherServiceImpl implements WeatherService{
 
     @Override
     public Map<String, Object> getCurrentWeather(String city) {
-        String uri = String.format("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", apiKey, city);
+        String encodedCity = URLEncoder.encode(city, StandardCharsets.UTF_8);
+        String uri = String.format("http://api.weatherapi.com/v1/current.json?key=%s&q=%s", apiKey, encodedCity);
         return sendRequest(uri);
     }
 
