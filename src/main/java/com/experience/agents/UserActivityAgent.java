@@ -1,9 +1,7 @@
 package com.experience.agents;
 
-import com.experience.tools.UserActivityTools;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
-import com.google.adk.tools.FunctionTool;
 
 public class UserActivityAgent {
     private static final String NAME = "user_activity_agent";
@@ -42,7 +40,7 @@ public class UserActivityAgent {
                                                         
                             Do not include any additional commentary or formatting.
                             """)
-                .tools(FunctionTool.create(UserActivityTools.class, "analyzeUserActivity"))
+                .tools()
                 .outputKey("user_activity_insight")
                 .build();
     }

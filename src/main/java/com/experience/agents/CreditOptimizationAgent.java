@@ -1,9 +1,7 @@
 package com.experience.agents;
 
-import com.experience.tools.CreditOptimizationTools;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
-import com.google.adk.tools.FunctionTool;
 
 public class CreditOptimizationAgent {
     private static final String NAME = "credit_optimization_agent";
@@ -40,7 +38,7 @@ public class CreditOptimizationAgent {
                                                         
                             Do not include any other text or formatting.
                             """)
-                .tools(FunctionTool.create(CreditOptimizationTools.class, "optimizeCredits"))
+                .tools()
                 .build();
     }
 }
