@@ -1,0 +1,92 @@
+[
+  {
+    "experienceId": "1",
+    "title": "Sunrise Yoga in Central Park",
+    "category": "Fitness",
+    "location": "New York",
+    "description": "Join us for a rejuvenating yoga session under the morning sun.",
+    "creditCost": 3,
+    "indoor": false
+  },
+  {
+    "experienceId": "2",
+    "title": "Brooklyn Pottery Workshop",
+    "category": "Creativity",
+    "location": "New York",
+    "description": "A hands-on class where you'll make your own ceramic masterpiece.",
+    "creditCost": 4,
+    "indoor": true
+  },
+  {
+    "experienceId": "3",
+    "title": "Dallas Cooking Class: Southern Comfort Food",
+    "category": "Food",
+    "location": "Dallas",
+    "description": "Learn to make classics like fried chicken and mac & cheese from a local chef.",
+    "creditCost": 5,
+    "indoor": true
+  },
+  {
+    "experienceId": "4",
+    "title": "Klyde Warren Park Bootcamp",
+    "category": "Fitness",
+    "location": "Dallas",
+    "description": "An intense 45-minute outdoor workout session in the heart of Dallas.",
+    "creditCost": 2,
+    "indoor": false
+  },
+  {
+    "experienceId": "5",
+    "title": "NYC Meditation & Sound Bath",
+    "category": "Wellness",
+    "location": "New York",
+    "description": "Relax and recharge with guided meditation and immersive sound therapy.",
+    "creditCost": 4,
+    "indoor": true
+  },
+  {
+    "experienceId": "6",
+    "title": "Dallas Painting & Wine Night",
+    "category": "Creativity",
+    "location": "Dallas",
+    "description": "Sip wine while a local artist teaches you how to paint your masterpiece.",
+    "creditCost": 3,
+    "indoor": true
+  },
+  {
+    "experienceId": "7",
+    "title": "Chelsea Gallery Crawl",
+    "category": "Culture",
+    "location": "New York",
+    "description": "Explore rotating exhibitions at renowned Chelsea art galleries with a curator guide.",
+    "creditCost": 4,
+    "indoor": false
+  },
+  {
+    "experienceId": "8",
+    "title": "Trinity River Kayaking Tour",
+    "category": "Adventure",
+    "location": "Dallas",
+    "description": "Enjoy scenic views and wildlife on this beginner-friendly kayak tour.",
+    "creditCost": 6,
+    "indoor": false
+  },
+  {
+    "experienceId": "9",
+    "title": "Broadway Dance Class",
+    "category": "Fitness",
+    "location": "New York",
+    "description": "Channel your inner performer in a high-energy dance class led by Broadway pros.",
+    "creditCost": 3,
+    "indoor": true
+  },
+  {
+    "experienceId": "10",
+    "title": "Dallas Candle-Making Lab",
+    "category": "Creativity",
+    "location": "Dallas",
+    "description": "Craft your own scented candles with personalized labels and packaging.",
+    "creditCost": 3,
+    "indoor": true
+  }
+]

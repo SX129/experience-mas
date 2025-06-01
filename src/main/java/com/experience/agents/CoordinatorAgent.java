@@ -1,6 +1,6 @@
 package com.experience.agents;
 
-import com.experience.tools.user.UserMockDataTool;
+import com.experience.tools.mock.UserMockDataTool;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
 import com.google.adk.tools.FunctionTool;

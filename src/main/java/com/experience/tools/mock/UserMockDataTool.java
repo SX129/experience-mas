@@ -1,4 +1,4 @@
-package com.experience.tools.user;
+package com.experience.tools.mock;
 
 import com.experience.model.user.User;
 
@@ -10,7 +10,6 @@ import com.google.adk.tools.Annotations;
 
 import java.util.Map;
 import java.util.Optional;
-import java.io.File;
 
 public class UserMockDataTool {
     private static List<User> users;
