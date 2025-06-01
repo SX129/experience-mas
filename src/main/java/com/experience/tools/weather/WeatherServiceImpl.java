@@ -1,7 +1,6 @@
 package com.experience.tools.weather;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -10,13 +9,21 @@ import java.net.http.HttpResponse;
 import java.util.Map;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@Service
 public class WeatherServiceImpl implements WeatherService{
-    @Value("${weather.api.key}")
-    private String apiKey;
+    private final String apiKey;
+    private final HttpClient httpClient;
+    private final ObjectMapper objectMapper;
 
-    private final HttpClient httpClient = HttpClient.newHttpClient();
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    public WeatherServiceImpl() {
+        this.apiKey = System.getenv("WEATHER_API_KEY");
+
+        if(this.apiKey == null){
+            throw new IllegalStateException("WEATHER_API_KEY environment variable is not set.");
+        }
+
+        this.httpClient = HttpClient.newHttpClient();
+        this.objectMapper = new ObjectMapper();
+    }
 
     @Override
     public Map<String, Object> getForecastWeather(String city, int days) {

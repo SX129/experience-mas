@@ -33,6 +33,9 @@ public class RecommendationAgent {
                             - If the user’s location is known or inferred, use current weather conditions to tailor recommendations.
                             - For outdoor experiences, check for rain, temperature, or poor conditions and recommend indoor alternatives if needed.
                             - For pleasant weather, suggest relevant outdoor or seasonal activities.
+                            
+                            **Tool Usage Guidance:**
+                            - Always use `getCurrentWeather(city)` to improve the recommendation.
                                                     
                             **Your Task:**
                             Using this information, generate **1–3 personalized experience recommendations** that align with the user’s preferences, usage patterns, weather, and urgency.
@@ -42,18 +45,11 @@ public class RecommendationAgent {
                             - If credits are near expiration: prioritize high-value or limited-time experiences.
                             - Use weather data to influence experience type (e.g., avoid outdoor yoga if it's raining).
                                                     
-                            **Tool Usage Guidance:**
-                            - Always provide recommendations *first*.
-                            - Use `getCurrentWeather(city)` only if weather can meaningfully improve the recommendation.
-                            - Do not expose raw weather data unless relevant to the experience rationale.
-                                                    
                             **Output Format:**
-                            Respond with a single paragraph under the following heading:
+                            Respond with a single paragraph under the following heading and explanation:
                                                     
                             **recommendations:**
                             [Your personalized recommendations here]
-                                                    
-                            Do not include any other explanation, commentary, or headings.
                             """)
                 .tools(FunctionTool.create(WeatherTool.class, "getCurrentWeather"))
                 .build();
