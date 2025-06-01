@@ -1,16 +1,9 @@
 package com.experience.agents;
 
-import com.experience.tools.RecommendationTools;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.experience.tools.weather.WeatherTool;
 import com.google.adk.agents.BaseAgent;
 import com.google.adk.agents.LlmAgent;
-import com.google.adk.tools.BaseTool;
 import com.google.adk.tools.FunctionTool;
-import com.google.adk.tools.mcp.McpToolset;
-import com.google.adk.tools.mcp.SseServerParameters;
-
-import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class RecommendationAgent {
     private static final String NAME = "recommendation_agent";
@@ -18,7 +11,6 @@ public class RecommendationAgent {
     public static BaseAgent ROOT_AGENT = initAgent();
 
     private static BaseAgent initAgent() {
-        //var toolList = getTools();
         return LlmAgent.builder()
                 .name(NAME)
                 .model("gemini-2.0-flash")
@@ -63,28 +55,7 @@ public class RecommendationAgent {
                                                     
                             Do not include any other explanation, commentary, or headings.
                             """)
-                .tools()//toolList)
+                .tools(FunctionTool.create(WeatherTool.class, "getCurrentWeather"))
                 .build();
-    }
-
-    private static ArrayList<BaseTool> getTools() {
-        String mcpServerUrl = "http://localhost:8080";
-        SseServerParameters params = SseServerParameters.builder().url(mcpServerUrl).build();
-        McpToolset.McpToolsAndToolsetResult toolsAndToolsetResult = null;
-
-        try {
-            toolsAndToolsetResult = McpToolset.fromServer(params, new ObjectMapper()).get();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        var toolList = toolsAndToolsetResult.getTools().stream().map(mcpTool -> (BaseTool) mcpTool)
-                .collect(Collectors.toCollection(ArrayList::new));
-
-        BaseTool experienceTool = FunctionTool.create(RecommendationTools.class, "recommendExperiences");
-
-        toolList.add(experienceTool);
-
-        return toolList;
     }
 }

@@ -1,4 +1,4 @@
-package com.experience.mcp.tools.weather;
+package com.experience.tools.weather;
 
 import java.util.Map;
 
