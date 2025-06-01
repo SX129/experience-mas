@@ -37,6 +37,8 @@ public class UserMockDataTool {
         if (users == null) {
             return Optional.empty();
         }
+
+        System.out.println("Returning user: " + userId);
         return users.stream()
                 .filter(u -> u.getUserId().equals(userId))
                 .findFirst();

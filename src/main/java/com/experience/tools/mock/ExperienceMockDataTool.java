@@ -36,6 +36,7 @@ public class ExperienceMockDataTool {
             return Collections.emptyList();
         }
 
+        System.out.println("Returning experiences in: " + location);
         return experiences.stream()
                 .filter(exp -> exp.getLocation().equals(location))
                 .collect(Collectors.toList());
